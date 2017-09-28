@@ -1,0 +1,23 @@
+#MyImg {
+  display: none;
+}
+.camera-header a:first-child {
+  float: left;
+  font-size: 30px;
+  padding-left: 10px;
+}
+.camera-header a {
+  position: relative;
+  z-index: 10;
+  color: white;
+}
+.camera-header h1 {
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+main {
+  padding: 15px 0;
+}

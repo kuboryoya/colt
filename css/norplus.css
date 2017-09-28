@@ -1,0 +1,526 @@
+body{
+    background-color: #f4f4f4;
+    color: #333333;
+    letter-spacing: 0.8px;
+    line-height: 1.4em;
+}
+
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+.l-left{
+    float: left;
+}
+
+.l-right{
+    float: right;
+}
+
+.l-border{
+    border-bottom: 1px solid #333333;
+}
+
+.l-in{
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.l-cf{
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/*--------------------------
+          header
+--------------------------*/
+header{
+    position: absolute;
+    top: 50px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 100%;
+    z-index: 10;
+    color: #ffffff;
+}
+
+header h1{
+    margin: auto;
+    width: 240px;
+    margin-bottom: 30px;
+}
+
+header li{
+    font-size: 16px;
+    margin-left: 60px;
+}
+
+.contents{
+    margin-bottom: 140px;
+}
+
+/*--------------------------
+          main
+--------------------------*/
+.main {
+    position: relative;
+    width:100vw;
+    height: 100vh;
+    background: url(../images/mainvisual.jpg) no-repeat center center;
+    background-size: cover;
+}
+
+.main-text {
+    color: #ffffff;
+    position: absolute;
+    top: 28%;
+    left: 58%;
+    padding: 50px 10px;
+    width: 22%;
+    font-size: 48px;
+    font-family: serif;
+    line-height: 1.7;
+}
+
+/*--------------------------
+          news
+--------------------------*/
+.news{
+    font-family: Helvetica;
+    color: #333333;
+    margin-bottom: 140px;
+}
+
+.news-l h2{
+    font-size: 40px;
+}
+
+.news-l span{
+    font-size: 18px;
+    border-bottom: 1px solid #333333;
+    padding-bottom: 15px;
+}
+
+.news-l{
+    margin-right: 288px;
+    margin-top: 140px;
+}
+
+.news-r p:first-of-type{
+    padding-bottom: 24px;
+}
+
+.news-r p:nth-child(3){
+    padding-top: 12px;
+}
+
+.news-r p{
+    font-size: 14px;
+}
+
+.news-r{
+    width: 450px;
+    margin-bottom: 80px;
+}
+
+.news-btn{
+    margin-top: 55px;
+}
+
+.button {
+  display: inline-block;
+  width: 200px;
+  height: 54px;
+  text-align: center;
+  text-decoration: none;
+  line-height: 54px;
+  outline: none;
+}
+
+.button::before,
+.button::after {
+  position: absolute;
+  z-index: -1;
+  display: block;
+  content: '';
+}
+
+.button,
+.button::before,
+.button::after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+.button {
+  position: relative;
+  z-index: 2;
+  background-color: #fff;
+  border: 2px solid #333;
+  color: #333;
+  line-height: 48px;
+}
+
+.button::after {
+  top: 4px;
+  left: 4px;
+  width: 188px;
+  height: 42px;
+  border: 2px solid #333;
+  opacity: 0;
+}
+
+.button:hover::after {
+  opacity: 1;
+}
+
+/*--------------------------
+          muj
+--------------------------*/
+.muj{
+  background-color: antiquewhite;
+  text-align: center;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 80px 0;
+  letter-spacing: 1px;
+  line-height: 1.6em;
+  margin-bottom: 140px;
+}
+
+.muj p{
+    font-size: 15px;
+}
+
+/*--------------------------
+          before
+--------------------------*/
+
+.before img{
+    width: 100%;
+    margin-bottom: 140px;
+}
+
+/*--------------------------
+          interview
+--------------------------*/
+
+.interview img{
+    width: 100%;
+}
+
+.interview{
+    position: relative;
+    color: #ffffff;
+    margin-bottom: 140px;
+}
+
+.interview h2{
+    position: absolute;
+    top: 50px;
+    left: 40px;
+    font-size: 80px;
+    font-family: Helvetica;
+}
+
+.interview span{
+    position: absolute;
+    top: 200px;
+    left: 40px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #ffffff;
+}
+
+.interview p:first-of-type{
+    position: absolute;
+    top: 300px;
+    left: 40px;
+    font-size: 30px;
+}
+
+.interview p:last-of-type{
+    position: absolute;
+    top: 380px;
+    left: 40px;
+    font-size: 15px;
+}
+
+.interview a{
+    position: absolute;
+    top: 480px;
+    left: 80px;
+    font-size: 15px;
+}
+
+/*--------------------------
+          camp
+--------------------------*/
+.camp{
+    position: relative;
+    margin-bottom: 140px;
+}
+
+.camp div{
+    position: absolute;
+    top: 20%;
+    right: 20%;
+}
+
+.camp img{
+    width: 64%;
+}
+
+.camp-in{
+    background-color: #ffffff;
+    width: 600px;
+    height: 500px;
+    padding:10px 40px;
+}
+
+.camp-in h2{
+    line-height: 1.8em;
+    letter-spacing: 1px;
+    font-size: 45px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #333333;
+}
+
+.camp-in p{
+    line-height: 1.6em;
+    font-size: 18px;
+}
+
+/*--------------------------
+          activity
+--------------------------*/
+.activity{
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 140px;
+}
+
+.activity div{
+    position: absolute;
+    top: 30%;
+    left: 20%;
+    overflow: hidden;
+}
+
+.activity img{
+    width: 64%;
+}
+
+/*--------------------------
+          activity
+--------------------------*/
+.insta{
+    margin:auto;
+    margin-bottom: 140px;
+    overflow: hidden;
+}
+
+.insta img{
+    width: 25%;
+    
+}
+
+/*--------------------------
+          sponsor
+--------------------------*/
+
+.sponsor img{
+    width: 100%;
+    margin-bottom: 130px;
+}
+
+.sponsor-in{
+    text-align: center;
+}
+
+.sponsor-in p{
+    margin-bottom: 40px;
+}
+
+/*--------------------------
+          footer
+--------------------------*/
+footer{
+  background-color: antiquewhite;
+  text-align: center;
+  width: 100%;
+  height: 520px;
+  margin-left: auto;
+  margin-right: auto;
+  letter-spacing: 1px;
+  line-height: 1.6em;
+}
+
+.footer-in{
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding-top: 60px;
+    margin-bottom: 50px;
+}
+
+.footer-l{
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    border-right: 1px solid #333333;
+}
+
+.footer-sns{
+    width: 100%;
+    max-width: 385px;
+    margin: 0 auto;
+    overflow: hidden;
+    margin-bottom: 50px;
+}
+
+.footer-sns img{
+   padding: 30px 50px;
+   border-left: 1px solid #333333;
+}
+
+.footer-tel{
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.footer-tel p{
+    padding-left: 25px;
+}
+
+.footer-r{
+    width: 100%;
+    max-width: 490px;
+    margin: 0 auto;
+}
+
+.footer-r li{
+    margin-bottom: 30px;
+}
+
+.details{
+    width: 100%;
+    max-width: 250px;
+    margin: 0 auto;
+}
+
+.act{
+    width: 100%;
+    max-width: 250px;
+    margin: 0 auto;
+}
+
+/*---------------------------
+       interview
+---------------------------*/
+.main_interview {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    background: url(../images/mainvisual.jpg) no-repeat center center;
+    background-size: contain;
+    background-color: #001f52;
+    margin-bottom: 100px;
+}
+
+.content_interview{
+    margin-bottom: 100px;
+}
+
+.content_interview nav{
+    font-size: 14px;
+}
+
+.content_interview h2{
+    margin-bottom: 15px;
+    font-size: 30px;
+}
+
+.content_interview .list_interview{
+    width: 900px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.content_interview .list_interview_in{
+    width: 515px;
+}
+
+.list_interview_in h3{
+    font-size: 24px;
+    margin-bottom: 35px;
+}
+
+.list_interview_in p{
+    font-size: 14px;
+    margin-bottom: 100px;
+}
+
+.list_interview_in span{
+    font-size: 12px;
+    color: #333333;
+}
+
+.pagenav{
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 80px;
+}
+
+.pagenav a{
+    color: #c32777;
+}
+
+.pagenav ul.pagenav_in {
+    overflow: hidden;
+	margin: 0 0 10px;
+	padding: 10px;
+}
+
+.pagenav ul.pagenav_in li {
+	float: left;
+	margin: 5px 3px 3px 5px;
+    color: #c32777;
+}
+
+.pagenav_in li a:first-child {
+	float: left;
+	padding: 17px 45px;
+	background: #c32777;
+}
+
+.pagenav_in li a:last-child {
+	float: left;
+	padding: 17px 45px;
+	background: #c32777;
+}
+
+.pagenav_in li a:first-child {
+	color: #ffffff;
+}
+
+.pagenav_in li a:last-child {
+	color: #ffffff;
+}
+
+.pagenav ul.pagenav_in li a:hover {
+	background: #ffc;
+}

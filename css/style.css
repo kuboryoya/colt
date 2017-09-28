@@ -1,0 +1,99 @@
+
+body {
+  position: relative;
+}
+img {
+  max-width: 100%;
+}
+li {
+  list-style: none;
+}
+ul {
+  padding: 0;
+}
+a {
+    text-decoration: none;
+    color: #333;
+}
+dd {
+  margin: 0;
+}
+.l-left {
+    float: left;
+}
+.l-right {
+    float: right;
+}
+.l-cf {
+    content: "";
+    display: block;
+    clear: both;
+}
+.l-in {
+    width: 96%;
+    margin: 0 auto;
+}
+.content {
+  margin: 70px 0 60px;
+}
+.gm-style-iw {
+  line-height: 1em;
+}
+
+/*----------------
+      header 
+----------------*/
+header {
+  color: white;
+  background: #5CB154;
+  padding: 10px 0;
+  top: 0;
+  position: fixed;
+  width: 100%;
+  height: 70px;
+  box-sizing: border-box;
+  z-index: 10;
+}
+header .l-in {
+  position: relative;
+  line-height: 50px;
+}
+header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+header p {
+  margin: 0;
+}
+.header-found span{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 36px;
+}
+
+/*----------------
+      gnav 
+----------------*/
+.gnav {
+  position: fixed;
+  bottom: 0;
+  color: white;
+  background-color: #5CB154;
+  width: 100%;
+  padding: 5px 0;
+  z-index: 10;
+}
+.gnav-camera {
+  border-radius: 50%;
+  padding: 10px;
+  background: white;
+  text-align: center;
+  width: 30px;
+  display: block;
+  margin: 0 auto;
+}
+
+

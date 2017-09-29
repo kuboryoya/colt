@@ -83,13 +83,15 @@ $have = readCsv("data/have.csv");
         }
       ?>
     </ul>
-    <div id="sample"></div>
+    <div id="map-window">
+      <div id="myMap"></div>
+    </div>
   </div>
 
-  <nav class="gnav" id="gnav">
+  <nav class="gNav">
     <div class="l-in">
-      <p id="btn-list"><img src="image/btn-list.png"></p>
-      <a class="gnav-camera" href="camera.php">
+      <p id="btn-list"><img src="image/btn-list_on.png"></p>
+      <a class="gNav-camera" href="camera.php">
         <img src="image/camera.png">
       </a>
       <p id="btn-map"><img src="image/btn-map.png"></p>
@@ -101,6 +103,7 @@ $have = readCsv("data/have.csv");
         crossorigin="anonymous">
 </script>
 <script src="js/csv.js"></script>
+  <script src="js/map.js"></script>
 <script src="js/script.js"></script>
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFLtlLvGmy0vzobLRmKtFJBl_OS1HiKOE&callback=initMap">

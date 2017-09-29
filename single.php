@@ -57,28 +57,28 @@
         </tr>
       </table>
     </div>
-    <div id="single-map">
+    <div id="map-window">
       <div id="single-map-in">
-        <div id="sample">
+        <div id="single-map">
         </div>
         <p id="close-btn">X</p>
       </div>
       <table class="l-in">
         <tr>
-          <td>場所</td>
-          <td>静岡県浜松市</td>
+          <td></td>
+          <td></td>
         </tr>
         <tr>
-          <td>日時</td>
-          <td>2018年7月12日</td>
+          <td></td>
+          <td></td>
         </tr>
       </table>
   </div>
 
-    <nav class="gnav" id="gnav">
+    <nav class="gNav">
       <div class="l-in">
-        <p id="btn-list"><img src="image/btn-list.png"></p>
-        <a class="gnav-camera" href="camera.php">
+        <p id="btn-list"><img src="image/btn-list_on.png"></p>
+        <a class="gNav-camera" href="camera.php">
           <img src="image/camera.png">
         </a>
         <p id="btn-map"><img src="image/btn-map.png"></p>
@@ -90,8 +90,8 @@
   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
   crossorigin="anonymous">
 </script>
-
-<script src="js/maps.js"></script>
+<script src="js/map.js"></script>
+<script src="js/single.js"></script>
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUTtnZ8_BkU3tCdJgbRVqij3R1ZS03Fbs&callback=initMap">
 </script>

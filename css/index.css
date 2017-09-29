@@ -1,12 +1,6 @@
 .content {
   position: relative;
 }
-#sample {
-  width: 100%;
-  position: fixed !important;
-  left: 100%;
-  top: 70px;
-}
 
 .index-bg {
   position: fixed;
@@ -18,6 +12,13 @@
   background: url(../image/index-bg.png) 50% 10% no-repeat;
   background-size: 150%;
 }
+
+/* myMap */
+#myMap {
+  width: 100%;
+  height: 100%;
+}
+
 
 /*----------------
     item-list

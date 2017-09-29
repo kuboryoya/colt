@@ -75,9 +75,9 @@ header p {
 }
 
 /*----------------
-      gnav 
+      gNav 
 ----------------*/
-.gnav {
+.gNav {
   position: fixed;
   bottom: 0;
   /*bottom: 20px;*/
@@ -88,9 +88,9 @@ header p {
   box-sizing: border-box;
 }
 
-.gnav-camera {
+.gNav-camera {
   border-radius: 50%;
-  padding: 10px;
+  padding: 9px 10px 11px;
   background: white;
   text-align: center;
   width: 30px;
@@ -100,16 +100,27 @@ header p {
   height: 30px;
 }
 
-.gnav p {
+.gNav p {
   background: white;
   position: absolute;
   top: 10px;
   margin: 0;
   height: 40px;
+  width: 40px;
 }
-.gnav p:first-child {
+.gNav p:first-child {
   left: 5%;
+  background: #4d4d4d;
 }
-.gnav p:last-child {
+.gNav p:last-child {
   right: 5%;
+}
+
+/* map-window */
+#map-window {
+  width: 100%;
+  position: fixed !important;
+  left: 100%;
+  top: 70px;
+  background: white;
 }

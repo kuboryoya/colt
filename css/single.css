@@ -49,19 +49,6 @@ tr {
   text-align: center;
 }
 
-#single-map {
-  position: fixed;
-  width: 100%;
-  top: 70px;
-  left: 100%;
-  background-color: white;
-}
-
-#single-map h2{
-  margin: 10px auto;
-  font-size: 16px;
-}
-
 .single-info img{
   background-color: #82D6FA;
 }
@@ -80,6 +67,7 @@ img#thumbnail {
 #single-map-in {
   position: relative;
 }
+
 .mapImg {
   position: absolute;
   left: 0;

@@ -70,3 +70,4 @@ function markerEvent(i) {
     infoWindow[i].open(map, marker[i]); // 吹き出しの表示
   });
 }
+

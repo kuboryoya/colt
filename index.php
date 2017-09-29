@@ -88,22 +88,30 @@ $have = readCsv("data/have.csv");
     </div>
   </div>
 
+
+
   <nav class="gNav">
     <div class="l-in">
       <p id="btn-list"><img src="image/btn-list_on.png"></p>
-      <a class="gNav-camera" href="camera.php">
-        <img src="image/camera.png">
-      </a>
+      <form id="bagForm" class="gNav-camera" name="bagForm" action="camera.php" method="post">
+        <input type="file" name="bagImg" id="bagImg">
+      </form>
       <p id="btn-map"><img src="image/btn-map.png"></p>
     </div>
   </nav>
+
+  <!-- 画像認識用の画像が入る -->
+  <img id="myImg" src="">
+
+<script src="js/exif.js"></script>
 <script
         src="https://code.jquery.com/jquery-2.2.4.min.js"
         integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
         crossorigin="anonymous">
 </script>
 <script src="js/csv.js"></script>
-  <script src="js/map.js"></script>
+<script src="js/map.js"></script>
+<script src="js/inputRead.js"></script>
 <script src="js/script.js"></script>
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFLtlLvGmy0vzobLRmKtFJBl_OS1HiKOE&callback=initMap">

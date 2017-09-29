@@ -124,3 +124,8 @@ header p {
   top: 70px;
   background: white;
 }
+
+/* MyImg */
+#myImg {
+  display: none;
+}

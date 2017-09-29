@@ -16,22 +16,25 @@
 		</div>
 	</header>
 	<div class="content">
-		<main class="l-in">
-			
-			<form name='mainForm'>
-				<input name='_file' id="file_input" type="file" accept="image/*">
-			</form>
-			
-			<div id="descriptions">
-				<p id="file_btn"></p>
+		<main>
+			<img id="myImg" src="<?php echo $_POST['bagB64']?>">
+
+			<div class="l-in">
+				<div id="descriptions">
+					<p id="file_btn"></p>
+				</div>
+
+				<div id="resultText"></div>
+
+				<form id="resultForm" action="index.php" method="post">
+
+					<input type="text" name="bagLat" value="<?php echo $_POST['bagPlace']?>">
+					<input type="text" name="bagLat" value="<?php echo $_POST['bagLat']?>">
+					<input type="text" name="bagLng" value="<?php echo $_POST['bagLng']?>">
+					<input type="text" name="bagResize" value="<?php echo $_POST['minB64']?>">
+				</form>
+
 			</div>
-			
-			<div id="imgWrapper"></div>
-			
-			<div id="resultText"></div>
-			
-			<div id="resultForm"></div>
-			
 		</main>
 	</div>
 	<script src="js/exif.js"></script>

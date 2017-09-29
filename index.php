@@ -37,7 +37,7 @@ $have = readCsv("data/have.csv");
 <head>
   <meta charset="UTF-8">
   <title>生き物図鑑</title>
-  <meta name="viewport" content="width=360,initial-scale=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/index.css">
@@ -63,47 +63,47 @@ $have = readCsv("data/have.csv");
   <div class="index-bg"></div>
 
   <div class="content">
-
-
     <ul class="item-list l-in">
-<?php
-for($i=1; $i< count($have); $i++){
-  echo '<li>';
-  //撮った画像があるなら表示
-  if($have[$i][1]){
-    echo '<a href="single.php?bag=' . $bag[$i][5] . '">';
-    echo '<img src="data:image/jpeg;base64,'. $have[$i][1] . '">';
-    echo '<p>'. $have[$i][0] . '</p>';
-    echo '</a>';
-  }else{
-    echo '<div>';
-    echo '<img src="image/hatena.png">';
-    echo '<p>'. $have[$i][0] . '</p>';
-    echo '</div>';
-  }
-  echo '</li>';
-}
-?>
+      <?php
+        for($i=1; $i< count($have); $i++){
+        echo '<li>';
+        //撮った画像があるなら表示
+        if($have[$i][1]){
+          echo '<a href="single.php?bag=' . $bag[$i][5] . '">';
+          echo '<img src="data:image/jpeg;base64,'. $have[$i][1] . '">';
+          echo '<p>'. $have[$i][0] . '</p>';
+          echo '</a>';
+        }else{
+          echo '<div>';
+          echo '<img src="image/hatena.png">';
+          echo '<p>'. $have[$i][0] . '</p>';
+          echo '</div>';
+        }
+        echo '</li>';
+        }
+      ?>
     </ul>
-
     <div id="sample"></div>
   </div>
-  <nav class="gnav">
-    <a class="gnav-camera" href="camera.html">
-      <img src="image/camera.png">
-    </a>
+
+  <nav class="gnav" id="gnav">
+    <div class="l-in">
+      <p id="btn-list"><img src="image/btn-list.png"></p>
+      <a class="gnav-camera" href="camera.php">
+        <img src="image/camera.png">
+      </a>
+      <p id="btn-map"><img src="image/btn-map.png"></p>
+    </div>
   </nav>
-
-
-  <script
-          src="https://code.jquery.com/jquery-2.2.4.min.js"
-          integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
-          crossorigin="anonymous">
-  </script>
-  <script src="js/csv.js"></script>
-  <script src="js/script.js"></script>
-  <script async defer
-          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFLtlLvGmy0vzobLRmKtFJBl_OS1HiKOE&callback=initMap">
-  </script>
+<script
+        src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+        crossorigin="anonymous">
+</script>
+<script src="js/csv.js"></script>
+<script src="js/script.js"></script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFLtlLvGmy0vzobLRmKtFJBl_OS1HiKOE&callback=initMap">
+</script>
 </body>
 </html>

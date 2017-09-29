@@ -6,9 +6,18 @@ $(function () {
   var imgPlace;
   var imgDate;
   var imgResize;
+
   $.get('./data/bag.csv',function(data){
     bagData = $.csv()(data);
   });
+
+  //今日の日付を取得する
+  imgDate = getToday();
+  function getToday() {
+    var date = new Date();
+    var dateMonth =  Number(date.getMonth())+1;
+    return date.getFullYear() + '年' + dateMonth + '月' + date.getDate() + '日';
+  }
 
   //ファイルが変更された時の処理
   $('#file_input').on("change", function(e) {
@@ -18,11 +27,30 @@ $(function () {
     $('#resultText').empty();
     $('#resultForm').empty();
 
-    //画像の日付を取得する
-    var FileObj = $(this)[0].files;
-    var date = new Date(FileObj[0].lastModifiedDate); // Date
-    var dateMonth =  Number(date.getMonth())+1;
-    imgDate = date.getFullYear() + '年' + dateMonth + '月' + date.getDate() + '日';
+    //ジオコーディングで使うGoogle Maps APIのURLとkey
+    var mapsUrl = 'https://maps.googleapis.com/maps/api/geocode/json?address=';
+    var key = '&key=AIzaSyBFLtlLvGmy0vzobLRmKtFJBl_OS1HiKOE';
+
+    //座標をジオコーディングして住所を割り出す
+    function getAddress(Lat,Lng){
+      var geoUrl = mapsUrl + Lat + ',' + Lng + key;
+      $.ajax({
+        url: geoUrl
+      }).done(function(data) {
+        //'administrative_area_level_1'(〇〇県)を探す
+        for(var i=0; i<data.results[0].address_components.length; i++){
+          if(data.results[0].address_components[i].types[0] == 'administrative_area_level_1'){
+            imgPlace = data.results[0].address_components[i].long_name;
+          }
+        }
+        //'locality'(〇〇市)を探す
+        for(var n=0; n<data.results[0].address_components.length; n++){
+          if(data.results[0].address_components[n].types[0] == 'locality'){
+            imgPlace += data.results[0].address_components[n].long_name;
+          }
+        }
+      });
+    }
 
     //画像の位置情報を取得する
     var file   = e.target.files[0];
@@ -37,28 +65,46 @@ $(function () {
           f = function (b, a) { return a + b / 60; };
           imgLat = gps.latitude.reduceRight(f)  * (gps.latitudeRef.indexOf("N") >= 0 ? 1 : -1);  //Latitude
           imgLng = gps.longitude.reduceRight(f) * (gps.longitudeRef.indexOf("E") >= 0 ? 1 : -1); //Longitude
+          getAddress(imgLat,imgLng);
 
-          var mapsUrl = 'https://maps.googleapis.com/maps/api/geocode/json?address=';
-          var key = '&key=AIzaSyBFLtlLvGmy0vzobLRmKtFJBl_OS1HiKOE';
-          var geoUrl = mapsUrl + imgLat + ',' + imgLng + key;
-          //座標をジオコーディングして住所を割り出す
-          $.ajax({
-            url: geoUrl
-          }).done(function(data) {
-            console.log(data);
-            imgPlace = data.results[6].formatted_address.replace('日本', '').replace('、', '').replace(',', '');
-          });
         }
       } catch (e) {
-        console.log('位置情報がありませんでした。');
+        console.log('写真位置情報がありませんでした。');
+        //現在位置を取得
+        console.log(navigator.geolocation);
+        if(navigator.geolocation){
+          navigator.geolocation.getCurrentPosition(
+            function(position) {
+              imgLat = position.coords.latitude;
+              imgLng = position.coords.longitude;
+              getAddress(imgLat,imgLng);
+            },
+            function (error) {
+              // エラーメッセージを表示
+              switch(error.code) {
+                case 1: // PERMISSION_DENIED
+                  alert("位置情報の利用が許可されていません");
+                  break;
+                case 2: // POSITION_UNAVAILABLE
+                  alert("現在位置が取得できませんでした");
+                  break;
+                case 3: // TIMEOUT
+                  alert("タイムアウトになりました");
+                  break;
+                default:
+                  alert("その他のエラー(エラーコード:"+error.code+")");
+                  break;
+              }
+            }
+          );
+        }
       }
     };
-    reader.readAsArrayBuffer(file);
 
+    reader.readAsArrayBuffer(file);
     var files = this.files;
     // FileReaderオブジェクトを作成
     var fileReader = new FileReader();
-
     // 読み込み後の処理を決めておく
     fileReader.onload = function() {
       // Data URIを取得
@@ -141,7 +187,7 @@ $(function () {
     var str_endpoint = "https://vision.googleapis.com/v1/images:annotate?key=";
     var str_api_key = "AIzaSyCuxN6Tj8x7AwOq3flo25fxRA5aBLs_w3U";
     var request_url = str_endpoint + str_api_key;
-
+    //リクエストデータを作成
     var data = {
       requests: [
         {
@@ -156,7 +202,7 @@ $(function () {
         }
       ]
     };
-
+    //JSON形式にする
     var str_json_data = JSON.stringify(data);
 
     $.ajax({
@@ -166,11 +212,10 @@ $(function () {
       dataType: 'json',
       data: str_json_data
     }).done(function(data) {
-      
-      var texts = data.responses[0].labelAnnotations;
       //画像のラベル一覧を取得。
+      var texts = data.responses[0].labelAnnotations;
+      //画像と一致する虫の数
       var isBag = 0;
-
       for(var i=0; i<texts.length; i++){
         console.log(texts[i].description.replace(/ /g,'_'));
         //データと照合して、データに存在する虫ならOK
@@ -187,10 +232,8 @@ $(function () {
           }
         }
       }
-
-      //結果をクリアに
-      $('#file_btn').empty();
-
+      //連続してボタンを押さないように消す
+      $('#file_text').empty();
       if(!isBag){
         $('#resultText').append('<p>なんの生き物かわかりませんでした。写真を撮りなおしてください。</p>');
       }else if(isBag == 1){
@@ -203,8 +246,6 @@ $(function () {
       $('.bagText h2').on('click', function () {
         dataInput($(this).text());
       });
-
-      console.log(imgResize);
 
       //画像のタイトル、B64データ、日付、場所をインプット
       function dataInput(Name) {
@@ -221,7 +262,6 @@ $(function () {
           '<input type="submit" name="send" value="登録">' +
           '</form>');
       }
-
     })
     .fail(function(jqXHR, textStatus, errorThrown) {
       $("#XMLHttpRequest").html("XMLHttpRequest : " + jqXHR.status);

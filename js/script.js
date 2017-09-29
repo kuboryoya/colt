@@ -1,10 +1,8 @@
 $(function(){
-
+  
   //マップのサイズをウィンドウ幅いっぱいにする
   var windowWidth;
-  windowHeight = $(window).height();
-  var windowHeight;
-  $('#sample').css('height',windowHeight - 130);
+  var windowHeight = $(window).height();
   window.onscroll = function(){
     windowWidth = $(window).width();
     windowHeight = $(window).height();
@@ -12,109 +10,59 @@ $(function(){
     $('#sample').css('height',windowHeight);
   };
 
-
-
-
-  $(function() {
-    var target = $('.content');
-    target.on('touchstart', onTouchStart); //指が触れたか検知
-    target.on('touchmove', onTouchMove); //指が動いたか検知
-    target.on('touchend', onTouchEnd); //指が離れたか検知
-    var direction, position;
-
-    //スワイプ開始時の横方向の座標を格納
-    function onTouchStart(event) {
-      position = getPosition(event);
-      direction = ''; //一度リセットする
-    }
-
-    //スワイプの方向（left／right）を取得
-    function onTouchMove(event) {
-      if (position - getPosition(event) > 70) { // 70px以上移動しなければスワイプと判断しない
-        direction = 'left'; //左と検知
-      } else if (position - getPosition(event) < -70){  // 70px以上移動しなければスワイプと判断しない
-        direction = 'right'; //右と検知
-      }
-    }
-
-    function onTouchEnd(event) {
-      if (direction == 'right'){
-        //左から右
-      } else if (direction == 'left'){
-        //右から左
-        $('#sample').animate({left: "0%"},500,"swing");
-      }
-    }
-
-    //横方向の座標を取得
-    function getPosition(event) {
-      return event.originalEvent.touches[0].pageX;
-    }
+  $('#btn-list').on('click', function () {
+    $('#sample').animate({left: "100%"},500,"swing");
+  });
+  $('#btn-map').on('click', function () {
+    $('#sample').animate({left: "0%"},500,"swing");
+    console.log("hoge");
   });
 
-  $(function() {
-    var target = $('#sample');
-    target.on('touchstart', onTouchStart); //指が触れたか検知
-    target.on('touchmove', onTouchMove); //指が動いたか検知
-    target.on('touchend', onTouchEnd); //指が離れたか検知
-    var direction, position;
+  //スワイプ対象
+  var target = $('.content');
+  target.on('touchstart', onTouchStart); //指が触れたか検知
+  target.on('touchmove', onTouchMove); //指が動いたか検知
+  target.on('touchend', onTouchEnd); //指が離れたか検知
+  var direction, position;
 
-    //スワイプ開始時の横方向の座標を格納
-    function onTouchStart(event) {
-      position = getPosition(event);
-      direction = ''; //一度リセットする
-    }
+  //スワイプ開始時の横方向の座標を格納
+  function onTouchStart(event) {
+    position = getPosition(event);
+    direction = ''; //一度リセットする
+  }
 
-    //スワイプの方向（left／right）を取得
-    function onTouchMove(event) {
-      if (position - getPosition(event) > 70) { // 70px以上移動しなければスワイプと判断しない
-        direction = 'left'; //左と検知
-      } else if (position - getPosition(event) < -70){  // 70px以上移動しなければスワイプと判断しない
-        direction = 'right'; //右と検知
-      }
+  //スワイプの方向（left／right）を取得
+  function onTouchMove(event) {
+    if (position - getPosition(event) > 70) { // 70px以上移動しなければスワイプと判断しない
+      direction = 'left'; //左と検知
+    } else if (position - getPosition(event) < -70){  // 70px以上移動しなければスワイプと判断しない
+      direction = 'right'; //右と検知
     }
+  }
 
-    function onTouchEnd(event) {
-      if (direction == 'right'){
-        //左から右
-        $('#sample').animate({left: "100%"},500,"swing");
-      } else if (direction == 'left'){
-        //右から左
-      }
+  function onTouchEnd(event) {
+    if (direction == 'right'){
+      //左から右
+      $('#sample').animate({left: "100%"},500,"swing");
+    } else if (direction == 'left'){
+      //右から左
+      $('#sample').animate({left: "0%"},500,"swing");
     }
+  }
 
-    //横方向の座標を取得
-    function getPosition(event) {
-      return event.originalEvent.touches[0].pageX;
-    }
-  });
+  //横方向の座標を取得
+  function getPosition(event) {
+    return event.originalEvent.touches[0].pageX;
+  }
 
 });
+
+
 
 var map;
 var marker = [];
 var infoWindow = [];
-var markerData = [
-// // マーカーを立てる場所名・緯度・経度
-//   {
-//     name: '<a href="single.html">カブトムシ</a>',
-//     lat: 33.1057806,
-//     lng: 135.76325010000005,
-//     icon: 'image/min/item01.jpg'
-//   }, {
-//     name: '<a href="single.html">モンキチョウ</a>',
-//     lat: 39.6993529,
-//     lng: 140.76526949999993,
-//     icon: 'image/min/monkityou.jpg'
-//   }, {
-//     name: '<a href="single.html">モンシロチョウ</a>',
-//     lat: 35.695932,
-//     lng: 139.75762699999996,
-//     icon: 'image/min/monsirotyou.jpg'
-//   }
-];
-
-
+var markerData = [];
 
 function initMap() {
   var have;
@@ -175,8 +123,7 @@ function initMap() {
     });
   });
 
-
-}
+} //end InitMap
 
 // マーカーにクリックイベントを追加
 function markerEvent(i) {

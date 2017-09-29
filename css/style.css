@@ -80,12 +80,14 @@ header p {
 .gnav {
   position: fixed;
   bottom: 0;
-  color: white;
-  background-color: #5CB154;
+  /*bottom: 20px;*/
   width: 100%;
+  background-color: #5CB154;
+  height: 60px;
   padding: 5px 0;
-  z-index: 10;
+  box-sizing: border-box;
 }
+
 .gnav-camera {
   border-radius: 50%;
   padding: 10px;
@@ -94,6 +96,20 @@ header p {
   width: 30px;
   display: block;
   margin: 0 auto;
+  line-height: 50px;
+  height: 30px;
 }
 
-
+.gnav p {
+  background: white;
+  position: absolute;
+  top: 10px;
+  margin: 0;
+  height: 40px;
+}
+.gnav p:first-child {
+  left: 5%;
+}
+.gnav p:last-child {
+  right: 5%;
+}

@@ -8,80 +8,49 @@ $(function () {
     $('#single-map').css('height',windowHeight - 130);
     $('#sample').css('height',windowWidth);
   };
-
-  $(function() {
-    var target = $('.content');
-    target.on('touchstart', onTouchStart); //指が触れたか検知
-    target.on('touchmove', onTouchMove); //指が動いたか検知
-    target.on('touchend', onTouchEnd); //指が離れたか検知
-    var direction, position;
-
-    //スワイプ開始時の横方向の座標を格納
-    function onTouchStart(event) {
-      position = getPosition(event);
-      direction = ''; //一度リセットする
-    }
-
-    //スワイプの方向（left／right）を取得
-    function onTouchMove(event) {
-      if (position - getPosition(event) > 70) { // 70px以上移動しなければスワイプと判断しない
-        direction = 'left'; //左と検知
-      } else if (position - getPosition(event) < -70){  // 70px以上移動しなければスワイプと判断しない
-        direction = 'right'; //右と検知
-      }
-    }
-
-    function onTouchEnd(event) {
-      if (direction == 'right'){
-        //左から右
-      } else if (direction == 'left'){
-        //右から左
-        $('#single-map').animate({left: "0%"},500,"swing");
-      }
-    }
-
-    //横方向の座標を取得
-    function getPosition(event) {
-      return event.originalEvent.touches[0].pageX;
-    }
+  $('#btn-list').on('click', function () {
+    $('#single-map').animate({left: "100%"},500,"swing");
+  });
+  $('#btn-map').on('click', function () {
+    $('#single-map').animate({left: "0"},500,"swing");
+    console.log("hoge");
   });
 
-  $(function() {
-    var target = $('#single-map');
-    target.on('touchstart', onTouchStart); //指が触れたか検知
-    target.on('touchmove', onTouchMove); //指が動いたか検知
-    target.on('touchend', onTouchEnd); //指が離れたか検知
-    var direction, position;
+  var target = $('.content');
+  target.on('touchstart', onTouchStart); //指が触れたか検知
+  target.on('touchmove', onTouchMove); //指が動いたか検知
+  target.on('touchend', onTouchEnd); //指が離れたか検知
+  var direction, position;
 
-    //スワイプ開始時の横方向の座標を格納
-    function onTouchStart(event) {
-      position = getPosition(event);
-      direction = ''; //一度リセットする
-    }
+  //スワイプ開始時の横方向の座標を格納
+  function onTouchStart(event) {
+    position = getPosition(event);
+    direction = ''; //一度リセットする
+  }
 
-    //スワイプの方向（left／right）を取得
-    function onTouchMove(event) {
-      if (position - getPosition(event) > 70) { // 70px以上移動しなければスワイプと判断しない
-        direction = 'left'; //左と検知
-      } else if (position - getPosition(event) < -70){  // 70px以上移動しなければスワイプと判断しない
-        direction = 'right'; //右と検知
-      }
+  //スワイプの方向（left／right）を取得
+  function onTouchMove(event) {
+    if (position - getPosition(event) > 70) { // 70px以上移動しなければスワイプと判断しない
+      direction = 'left'; //左と検知
+    } else if (position - getPosition(event) < -70){  // 70px以上移動しなければスワイプと判断しない
+      direction = 'right'; //右と検知
     }
+  }
 
-    function onTouchEnd(event) {
-      if (direction == 'right'){
-        //左から右
-        $('#single-map').animate({left: "100%"},500,"swing");
-      } else if (direction == 'left'){
-        //右から左
-      }
+  function onTouchEnd(event) {
+    if (direction == 'right'){
+      //左から右
+      $('#single-map').animate({left: "100%"},500,"swing");
+    } else if (direction == 'left'){
+      //右から左
+      $('#single-map').animate({left: "0%"},500,"swing");
     }
+  }
 
-    //横方向の座標を取得
-    function getPosition(event) {
-      return event.originalEvent.touches[0].pageX;
-    }
-  });
+  //横方向の座標を取得
+  function getPosition(event) {
+    return event.originalEvent.touches[0].pageX;
+  }
 
 });
 

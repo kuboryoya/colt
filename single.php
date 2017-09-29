@@ -19,7 +19,7 @@
 <head>
   <meta charset="UTF-8">
   <title>生き物図鑑</title>
-  <meta name="viewport" content="width=360,initial-scale=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/single.css">
@@ -75,11 +75,15 @@
       </table>
   </div>
 
-  <nav class="gnav">
-    <a class="gnav-camera" href="camera.html">
-      <img src="image/camera.png">
-    </a>
-  </nav>
+    <nav class="gnav" id="gnav">
+      <div class="l-in">
+        <p id="btn-list"><img src="image/btn-list.png"></p>
+        <a class="gnav-camera" href="camera.php">
+          <img src="image/camera.png">
+        </a>
+        <p id="btn-map"><img src="image/btn-map.png"></p>
+      </div>
+    </nav>
 
 <script
   src="https://code.jquery.com/jquery-2.2.4.min.js"

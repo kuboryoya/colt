@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>カメラロール</title>
-	<meta name="viewport" content="width=360,initial-scale=1">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/camera.css">
@@ -11,20 +11,27 @@
 <body>
 	<header class="camera-header">
 		<div class="l-in l-cf">
-			<a href="/">×</a>
+			<a href="index.php">×</a>
 			<h1>カメラロール</h1>
 		</div>
 	</header>
 	<div class="content">
 		<main class="l-in">
+			
 			<form name='mainForm'>
-				<input name='_file' id="file_input" type="file">
+				<input name='_file' id="file_input" type="file" accept="image/*">
 			</form>
-			<p id="file_btn"></p>
-			<div id="imgWrapper">
+			
+			<div id="descriptions">
+				<p id="file_btn"></p>
 			</div>
+			
+			<div id="imgWrapper"></div>
+			
 			<div id="resultText"></div>
+			
 			<div id="resultForm"></div>
+			
 		</main>
 	</div>
 	<script src="js/exif.js"></script>

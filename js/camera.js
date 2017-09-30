@@ -1,4 +1,10 @@
 $(function () {
+
+  if(!$('#bagPlace')[0].defaultValue){
+    $('#resultText').append('<p>位置情報が取得できませんでした。<br>端末の位置情報の使用を許可してください。</p>');
+    return;
+  }
+
   var b64 = $('#myImg').attr('src'); //画像の文字列
   var bagData; //全ての虫のデータ
   var imgDate; //今日の日付
@@ -51,36 +57,53 @@ $(function () {
       var texts = data.responses[0].labelAnnotations;
       //画像と一致する虫の数
       var isBag = 0;
+      var bagName = [];
+      var bagDescription = [];
       for(var i=0; i<texts.length; i++){
         console.log(texts[i].description.replace(/ /g,'_'));
         //データと照合して、データに存在する虫ならOK
         for(var n=0; n<bagData.length; n++){
           if(bagData[n][5] == texts[i].description.replace(/ /g,'_')) {
-            //虫の名前と//説明文を表示
-            $('#resultText').append(
-              '<div class="bagText">' +
-                '<h2 class="bagName">' + bagData[n][0] + '</h2>' +
-                '<p>' + bagData[n][1] + '</p>' +
-              '</div>'
-            );
+            //出力結果をまとめる
             isBag ++;
+            bagName.push(bagData[n][0]);
+            bagDescription.push(bagData[n][1]);
           }
         }
       }
-      //連続してボタンを押さないように消す
-      $('#file_text').empty();
+
       if(!isBag){
         $('#resultText').append('<p>なんの生き物かわかりませんでした。写真を撮りなおしてください。</p>');
       }else if(isBag == 1){
+        // 結果が1匹の場合の処理
+        $('#resultText').append(
+          '<div class="bagText">' +
+            '<h2 class="bagName">' + bagName[0] + '</h2>' +
+            '<p>' + bagDescription[0] + '</p>' +
+          '</div>'
+        );
         dataInput($('.bagName').text());
+        addSubmit();
       }else{
+        // 結果が2匹以上の場合の処理
+        for(var b=0; b<isBag; b++){
+          $('#resultText').append(
+            '<div class="bagText bagRadio">' +
+            '<h2 class="bagName">' + bagName[b] + '</h2>' +
+            '<p>' + bagDescription[b] + '</p>' +
+            '</div>'
+          );
+        }
         dataInput();
         $('#resultText').append('<p>'+ isBag + '件の候補が見つかりました。生き物を選択してください。</p>')
       }
 
       //画像候補が押されたらFormの虫の名前を書き換える
-      $('.bagText h2').on('click', function () {
-        $('bagName').value = $(this).text();
+      $('.bagRadio').on('click', function () {
+        $('.bagRadio').css('background', 'white');
+        $(this).css('background', 'pink');
+        $('#bagName').attr('value', $(this).children('h2')[0].textContent);
+        addSubmit();
       });
 
       //画像のタイトル、B64データ、日付、場所をインプット
@@ -88,10 +111,19 @@ $(function () {
         $('#resultForm').append(
           '<input id="bagName" type="text" name="bagName" value="' + Name + '">' +
           '<input type="text" name="bagImage" value="' + b64.replace(/^data:image\/(png|jpg|jpeg);base64,/, "") + '">' +
-          '<input type="text" name="bagDate" value="' + imgDate + '">' +
-          '<input id="bagSubmit" type="submit" name="send" value="図鑑に登録">'
+          '<input type="text" name="bagDate" value="' + imgDate + '">'
         );
       }
+
+      //もし登録ボタンがないなら登録ボタンを出す。
+      function addSubmit (){
+        if(!$('#bagSubmit').length){
+          $('#resultForm').append(
+            '<input id="bagSubmit" type="submit" name="send" value="図鑑に登録">'
+          );
+        }
+      }
+
 
     })
     .fail(function(jqXHR, textStatus, errorThrown) {

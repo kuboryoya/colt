@@ -129,3 +129,13 @@ header p {
 #myImg {
   display: none;
 }
+
+#bagImg {
+  height: 0;
+  padding-top: 30px;
+  width: 30px;
+  border: none;
+  overflow: hidden;
+  background: url("../image/camera.png") center center no-repeat;
+  background-size: 30px 30px;
+}

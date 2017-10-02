@@ -28,7 +28,7 @@
 
 				<form id="resultForm" action="index.php" method="post">
 
-					<input id="bagPlace" type="text" name="bagLat" value="<?php echo $_POST['bagPlace']?>">
+					<input id="bagPlace" type="text" name="bagPlace" value="<?php echo $_POST['bagPlace']?>">
 					<input type="text" name="bagLat" value="<?php echo $_POST['bagLat']?>">
 					<input type="text" name="bagLng" value="<?php echo $_POST['bagLng']?>">
 					<input type="text" name="bagResize" value="<?php echo $_POST['minB64']?>">

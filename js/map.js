@@ -7,14 +7,14 @@ $(function(){
   // マップの高さを設定
   var mapWindow = $('#map-window');
   mapWindow.css('height',windowHeight);
-  $('#single-map').css('height',windowWidth);
+  $('#single-map').css('height',windowHeight-150);
 
   // スマホのタブ対応
   // スクロールするたびに高さを設定し直す
   window.onscroll = function(){
     windowHeight = $(window).height();
     mapWindow.css('height',windowHeight);
-    $('#single-map').css('height',windowWidth);
+    $('#single-map').css('height',windowHeight-150);
   };
 
   // map-windowを表示。ボタンの色を変更。

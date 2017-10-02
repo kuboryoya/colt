@@ -1,4 +1,5 @@
 table {
+  height: 90px;
   padding: 10px 0;
 }
 tr {
@@ -9,6 +10,7 @@ tr {
     single-header
 ----------------*/
 .single-header {
+  position: relative;
   padding-left: 20px;
   background: -webkit-gradient(linear, left top, right top, color-stop(0.5, #fff), color-stop(0.5, #5CB154), color-stop(0.00, #5CB154));
   background: -webkit-linear-gradient(left, #5CB154 0%, #5CB154 5%, #fff 5%);
@@ -17,6 +19,10 @@ tr {
   background: -ms-linear-gradient(left, #5CB154 0%, #5CB154 5%, #fff 5%);
   background: linear-gradient(to right, #5CB154 0%, #5CB154 5%, #fff 5%);
   color: #333;
+}
+
+.content {
+  margin-top: 0;
 }
 
 /*----------------

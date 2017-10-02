@@ -45,6 +45,9 @@
     </div>
 
     <div class="single-info">
+      <div class="l-in">
+        <h2>分布・時期</h2>
+      </div>
       <img src="image/maps/<?php echo $bag[$bagIndex][3]; ?>.png">
       <table class="l-in">
         <tr>
@@ -57,31 +60,36 @@
         </tr>
       </table>
     </div>
-    <div id="map-window">
+
+    <div class="single-map">
+      <div class="l-in">
+        <h2>他の人の<?php echo $bag[$bagIndex][0] ?></h2>
+      </div>
       <div id="single-map-in">
         <div id="single-map">
         </div>
         <p id="close-btn">X</p>
       </div>
-      <table class="l-in">
-        <tr>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-        </tr>
-      </table>
+      <div id="single-map-text" class="l-in">
+        <p>画像をタップすると情報がみれます。</p>
+        <table>
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
+      </div>
   </div>
 
   <nav class="gNav">
     <div class="l-in">
-      <p id="btn-list"><img src="image/btn-list_on.png"></p>
       <form id="bagForm" class="gNav-camera" name="bagForm" action="camera.php" method="post">
         <input type="file" name="bagImg" id="bagImg">
       </form>
-      <p id="btn-map"><img src="image/btn-map.png"></p>
     </div>
   </nav>
 

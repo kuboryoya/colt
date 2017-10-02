@@ -47,16 +47,22 @@ $have = readCsv("data/have.csv");
   <header>
     <div class="l-in">
       <p class="header-found">見つけた数
-        <span>
+        <em>
           <?php
             for($i=1; $i<count($have); $i++){
               if($have[$i][1]){
                 $LookNum ++;
               }
             }
+            echo '<span>';
             echo $LookNum;
+            echo  '</span>';
+            echo '<span>／</span>';
+            echo '<span>';
+            echo count($have)-1;
+            echo '</span>';
           ?>
-        </span>
+        </em>
       </p>
     </div>
   </header>
@@ -88,8 +94,6 @@ $have = readCsv("data/have.csv");
       <div id="myMap"></div>
     </div>
   </div>
-
-
 
   <nav class="gNav">
     <div class="l-in">

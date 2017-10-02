@@ -65,14 +65,36 @@ header h1 {
 header p {
   margin: 0;
 }
-.header-found span{
+.header-found em{
+  font-style: normal;
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
+  left: 50%;
+  width: 0;
   text-align: center;
   font-size: 36px;
 }
+
+.header-found span {
+  position: absolute;
+}
+
+.header-found span:nth-child(1) {
+  font-size: 26px;
+  right: 7px;
+  top: -5px;
+}
+.header-found span:nth-child(2) {
+  font-size: 36px;
+  left: -17px;
+  top: 3px;
+}
+.header-found span:nth-child(3) {
+  font-size: 22px;
+  right: -36px;
+  top: 12px;
+}
+
 
 /*----------------
       gNav 

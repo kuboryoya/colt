@@ -22,7 +22,6 @@ var markerData = [ // マーカーを立てる場所名・緯度・経度
     lat: 32.69496,
     lng: 133.76746000000003,
     icon: 'image/min/item01-03.jpg',
-    scaledSize : new google.maps.Size(48, 48),
     place: 'くまもtん',
     date: '2018年3月20日'
   }
@@ -64,10 +63,12 @@ function initMap() {
 
 // マーカーにクリックイベントを追加
 function markerEvent(i) {
-  marker[i].addListener('click', function() { // マーカーをクリックしたとき
+  marker[i].addListener('click', function() {
+    //画像、テキスト（場所）（日付）、ボタンを表示
     $('#single-map-in').append(markerData[i]['name']);
-    $('#map-window tr:first-child td:last-child').text(markerData[i]['place']);
-    $('#map-window tr:last-child td:last-child').text(markerData[i]['date']);
+    $('#single-map-text').children('p').remove();
+    $('#single-map-text tr:first-child td:last-child').text(markerData[i]['place']);
+    $('#single-map-text tr:last-child td:last-child').text(markerData[i]['date']);
     $('#close-btn').css('display','block');
   });
 }

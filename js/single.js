@@ -22,6 +22,7 @@ var markerData = [ // マーカーを立てる場所名・緯度・経度
     lat: 32.69496,
     lng: 133.76746000000003,
     icon: 'image/min/item01-03.jpg',
+    scaledSize : new google.maps.Size(48, 48),
     place: 'くまもtん',
     date: '2018年3月20日'
   }

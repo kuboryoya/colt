@@ -32,6 +32,7 @@
 					<input type="text" name="bagLat" value="<?php echo $_POST['bagLat']?>">
 					<input type="text" name="bagLng" value="<?php echo $_POST['bagLng']?>">
 					<input type="text" name="bagResize" value="<?php echo $_POST['minB64']?>">
+					<input type="text" name="bagRatio" value="<?php echo $_POST['bagRatio']?>">
 				</form>
 
 			</div>

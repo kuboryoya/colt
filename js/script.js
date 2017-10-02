@@ -18,10 +18,15 @@ function initMap() {
       console.log(have);
 
       for(var n=1; n<have.length; n++){
+
         if(have[n][1]){
+          var image = {
+            url : 'data:image/jpeg;base64,' + have[n][6],
+            scaledSize : new google.maps.Size(60, 60*have[n][7])
+          };
           markerData.push( {
             name: '<p><a href="single.php?bag=' + bagData[n][5] + '">' + have[n][0] + '</a></p>',
-            icon: 'data:image/jpeg;base64,' + have[n][6],
+            icon: image,
             place: have[n][2],
             date: have[n][3],
             lat: Number(have[n][4]),
@@ -54,9 +59,7 @@ function initMap() {
 
       for (var i = 0; i < markerData.length; i++) {
         marker[i].setOptions({// マーカーのオプション設定
-          icon: {
-            url: markerData[i]['icon']// マーカーの画像を変更
-          }
+          icon: markerData[i]['icon']// マーカーの画像を変更
         });
       }
     });

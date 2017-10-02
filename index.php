@@ -14,6 +14,7 @@ if(isset($_POST['bagName'])){
       $have[$i][4] = $_POST['bagLat'];
       $have[$i][5] = $_POST['bagLng'];
       $have[$i][6] = $_POST['bagResize'];
+      $have[$i][7] = $_POST['bagRatio'];
     }
   }
 }

@@ -1,43 +1,24 @@
-<!doctype html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <title>Document</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-</head>
-<body>
+<?php
+require('read.php');
+$user = readCsv("data/user.csv");
 
-<div id="map" style="width:100px;height:100px;"></div>
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFLtlLvGmy0vzobLRmKtFJBl_OS1HiKOE&callback=initMap">
-</script>
+echo var_dump($user);
 
-<script>
-
-
-  function initMap() {
-    var myLatlng = new google.maps.LatLng(34.687571, 135.526239);
-
-    var mapOptions = {
-      zoom : 17,
-      center : myLatlng
-    };
-    var map = new google.maps.Map(document.getElementById('map'), mapOptions);
-
-    var image = {
-      url : 'icon.png',
-      scaledSize : new google.maps.Size(48, 48)
-      // ↑ここで画像のサイズを指定
-    };
-
-    var marker = new google.maps.Marker({
-      position : myLatlng,
-      map : map,
-      icon : image,
-      title : "hogehoge"
-    });
+// 送られたユーザー情報があるかチェック
+if(isset($_POST['userId']) && isset($_POST['userId'])){
+  for($i=0; $i<count($user); $i++){
+    if($user[0] == $_POST['userId']){
+      
+    }
   }
-</script>
+}
 
-</body>
-</html>
+?>
+
+<p>ログイン</p>
+
+<form method="post" action="test.php">
+  <input type="text" id="userId" name="userId" placeholder="ID">
+  <input type="text" id="userPass" name="userPass" placeholder="PASS">
+  <input type="submit">
+</form>

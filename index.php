@@ -49,6 +49,7 @@ $have = readCsv("data/have.csv");
       <p class="header-found">見つけた数
         <em>
           <?php
+            $LookNum = 0;
             for($i=1; $i<count($have); $i++){
               if($have[$i][1]){
                 $LookNum ++;

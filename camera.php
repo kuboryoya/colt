@@ -12,7 +12,7 @@
 	<header class="camera-header">
 		<div class="l-in l-cf">
 			<a href="index.php">×</a>
-			<h1>カメラロール</h1>
+			<h1>登録画面</h1>
 		</div>
 	</header>
 	<div class="content">

@@ -77,7 +77,7 @@ $have = readCsv("data/have.csv");
         echo '<li>';
         //撮った画像があるなら表示
         if($have[$i][1]){
-          echo '<a href="single.php?bag=' . $bag[$i][5] . '">';
+          echo '<a href="single.php?bag=' . $have[$i][0] . '">';
           echo '<img src="data:image/jpeg;base64,'. $have[$i][1] . '">';
           echo '<p>'. $have[$i][0] . '</p>';
           echo '</a>';

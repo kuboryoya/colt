@@ -7,6 +7,7 @@ function initMap() {
   var have;
   var bagData;
 
+  // 何故かbagを読み込まないとhaveが変になる
   $.get('./data/bag.csv',function(data){
     bagData = $.csv()(data);
   }).done(function() {
@@ -25,7 +26,7 @@ function initMap() {
             scaledSize : new google.maps.Size(60, 60*have[n][7])
           };
           markerData.push( {
-            name: '<p><a href="single.php?bag=' + bagData[n][5] + '">' + have[n][0] + '</a></p>',
+            name: '<p><a href="single.php?bag=' + have[n][0] + '">' + have[n][0] + '</a></p>',
             icon: image,
             place: have[n][2],
             date: have[n][3],

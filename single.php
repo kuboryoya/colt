@@ -7,7 +7,7 @@
   $have = readCsv("data/have.csv");
 
   for($i=1; $i<count($bag); $i++){
-    if($_GET['bag'] == $bag[$i][5]){
+    if($_GET['bag'] == $bag[$i][0]){
       $bagIndex = $i;
     }
   }

@@ -7,20 +7,16 @@ $(function () {
 
   var b64 = $('#myImg').attr('src'); //画像の文字列
   var bagData; //全ての虫のデータ
-  var imgDate; //今日の日付
 
   //画像認識に使う虫のデータを読み込む
   $.get('./data/bag.csv',function(data){
     bagData = $.csv()(data);
   });
 
-  //今日の日付を取得する
-  imgDate = getToday();
-  function getToday() {
-    var date = new Date();
-    var dateMonth =  Number(date.getMonth())+1;
-    return date.getFullYear() + '年' + dateMonth + '月' + date.getDate() + '日';
-  }
+  // 画像データをFormに追加する
+  $('#resultForm').append(
+    '<input type="text" name="bagImage" value="' + b64.replace(/^data:image\/(png|jpg|jpeg);base64,/, "") + '">'
+  );
 
   // google cloud vision API
   // img: b64 - IMG
@@ -49,7 +45,7 @@ $(function () {
     $.ajax({
       url: request_url,
       type: 'POST',
-      contentType: 'application/json; charset=utf-8',
+      contentType: 'application/json; c rset=utf-8',
       dataType: 'json',
       data: str_json_data
     }).done(function(data) {
@@ -74,6 +70,7 @@ $(function () {
 
       if(!isBag){
         $('#resultText').append('<p>なんの生き物かわかりませんでした。写真を撮りなおしてください。</p>');
+        addNewBtn();
       }else if(isBag == 1){
         // 結果が1匹の場合の処理
         $('#resultText').append(
@@ -82,8 +79,9 @@ $(function () {
             '<p>' + bagDescription[0] + '</p>' +
           '</div>'
         );
-        dataInput($('.bagName').text());
+        $('#bagName').attr('value', $('.bagName').text());
         addSubmit();
+        addNewBtn();
       }else{
         // 結果が2匹以上の場合の処理
         for(var b=0; b<isBag; b++){
@@ -94,8 +92,8 @@ $(function () {
             '</div>'
           );
         }
-        dataInput();
         $('#resultText').append('<p>'+ isBag + '件の候補が見つかりました。生き物を選択してください。</p>')
+        addNewBtn();
       }
 
       //画像候補が押されたらFormの虫の名前を書き換える
@@ -106,24 +104,29 @@ $(function () {
         addSubmit();
       });
 
-      //画像のタイトル、B64データ、日付、場所をインプット
-      function dataInput(Name) {
-        $('#resultForm').append(
-          '<input id="bagName" type="text" name="bagName" value="' + Name + '">' +
-          '<input type="text" name="bagImage" value="' + b64.replace(/^data:image\/(png|jpg|jpeg);base64,/, "") + '">' +
-          '<input type="text" name="bagDate" value="' + imgDate + '">'
-        );
-      }
-
       //もし登録ボタンがないなら登録ボタンを出す。
       function addSubmit (){
         if(!$('#bagSubmit').length){
           $('#resultForm').append(
-            '<input id="bagSubmit" type="submit" name="send" value="図鑑に登録">'
+            '<input id="bagSubmit" class="btn-large" type="submit" name="send" value="図鑑に登録">'
           );
         }
       }
 
+      //もし新規追加ボタンがないなら出す
+      function addNewBtn (){
+        $('#newBag').css('display', 'block');
+      }
+
+      // 新規追加ボタンを押したらフォームを表示
+      $('#newBtn').on('click', function () {
+        console.log("hoge");
+        $('#resultText').css('display', 'none');
+        $('#newBag').css('display', 'none');
+        $('#bagName').css('display', 'block');
+        addSubmit();
+        $('#resultForm').attr('action', 'index.php');
+      });
 
     })
     .fail(function(jqXHR, textStatus, errorThrown) {

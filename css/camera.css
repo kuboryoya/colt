@@ -15,18 +15,40 @@
   text-align: center;
 }
 input {
-  max-width: 100% !important;
+  width: 100% !important;
   display: none;
+  box-sizing: border-box;
 }
 
-#bagSubmit {
+.btn-large {
   display: block;
   width: 100%;
   background: pink;
   border: none;
   padding: 20px 0;
+  text-align: center;
+  margin: 0;
+}
+
+#bagName {
+  height: 40px;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 #myImg {
   display: block !important;
+}
+
+#newBag {
+  display: none;
+}
+
+#newBag p{
+  text-align: center;
+}
+
+#newBag .btn-large {
+  background-color: #5CB154;
+  color: white;
 }

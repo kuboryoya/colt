@@ -5,10 +5,21 @@ $(function () {
 
   var imgLat;
   var imgLng;
-
+  
   var file;
   var files;
 
+  //今日の日付を取得する
+  var imgDate = getToday();
+  function getToday() {
+    var date = new Date();
+    var dateMonth =  Number(date.getMonth())+1;
+    return date.getFullYear() + '年' + dateMonth + '月' + date.getDate() + '日';
+  }
+
+  $('#bagForm').append(
+    '<input type="text" name="bagDate" value="' + imgDate + '">'
+  );
 
   // ファイルから必要な情報はここで抜き出す。
   $('#bagImg').on("change", function(e) {

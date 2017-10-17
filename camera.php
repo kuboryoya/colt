@@ -27,13 +27,19 @@
 				<div id="resultText"></div>
 
 				<form id="resultForm" action="index.php" method="post">
-
+					<input id="bagName" type="text" name="bagName" value="">
 					<input id="bagPlace" type="text" name="bagPlace" value="<?php echo $_POST['bagPlace']?>">
 					<input type="text" name="bagLat" value="<?php echo $_POST['bagLat']?>">
 					<input type="text" name="bagLng" value="<?php echo $_POST['bagLng']?>">
+					<input type="text" name="bagDate" value="<?php echo $_POST['bagDate']?>">
 					<input type="text" name="bagResize" value="<?php echo $_POST['minB64']?>">
 					<input type="text" name="bagRatio" value="<?php echo $_POST['bagRatio']?>">
 				</form>
+				
+				<div id="newBag">
+					<p>または</p>
+					<p id="newBtn" class="btn-large">新しく自分で登録する</p>
+				</div>
 
 			</div>
 		</main>

@@ -27,11 +27,13 @@
   padding-top: 20px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: flex-start;
 }
 .item-list li {
   display: inline-flex;
-  width: 30%;
+  width: 33.33%;
+  padding: 0 5px;
+  box-sizing: border-box;
   text-align: center;
 
 }

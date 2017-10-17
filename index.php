@@ -3,11 +3,13 @@ require('read.php');
 
 //cameraから送られたデータをデータベースに入れた配列を作成
 $have = readCsv("data/have.csv");
+$new = true;
 if(isset($_POST['bagName'])){
   //データベースを参照
   for($i=0; $i<count($have); $i++){
-    //該当する虫のデータをそれぞれ代入
+    //該当する虫のデータに情報をそれぞれ代入
     if($_POST['bagName'] == $have[$i][0]){
+      $new = false;
       $have[$i][1] = $_POST['bagImage'];
       $have[$i][2] = $_POST['bagPlace'];
       $have[$i][3] = $_POST['bagDate'];
@@ -17,6 +19,20 @@ if(isset($_POST['bagName'])){
       $have[$i][7] = $_POST['bagRatio'];
     }
   }
+  // もし新しい虫なら、新しい行にデータ作成
+  if($new){
+    $have[] = [
+      $_POST['bagName'],
+      $_POST['bagImage'],
+      $_POST['bagPlace'],
+      $_POST['bagDate'],
+      $_POST['bagLat'],
+      $_POST['bagLng'],
+      $_POST['bagResize'],
+      $_POST['bagRatio']
+    ];
+  }
+
 }
 //配列を,区切りの文字列にして、csvファイルに１行ずつ書き込み
 $fp = fopen('data/have.csv', 'w');
@@ -50,7 +66,7 @@ $have = readCsv("data/have.csv");
         <em>
           <?php
             $LookNum = 0;
-            for($i=1; $i<count($have); $i++){
+            for($i=1; $i<25; $i++){
               if($have[$i][1]){
                 $LookNum ++;
               }
@@ -60,10 +76,16 @@ $have = readCsv("data/have.csv");
             echo  '</span>';
             echo '<span>／</span>';
             echo '<span>';
-            echo count($have)-1;
+            echo '24';
             echo '</span>';
           ?>
         </em>
+        <strong>
+          <?php
+            echo '+';
+            echo count($have) - 25;
+          ?>
+        </strong>
       </p>
     </div>
   </header>

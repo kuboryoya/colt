@@ -4,21 +4,21 @@ var marker = [];
 var infoWindow = [];
 var markerData = [ // マーカーを立てる場所名・緯度・経度
   {
-    name: '<img class="mapImg" src="image/item01.jpg">',
+    name: '<img class="mapImg" src="image/bags/item01.jpg">',
     lat: 33.1057806,
     lng: 135.76325010000005,
     icon: 'image/min/item01.jpg',
     place: '静岡県浜松市',
     date: '2018年7月12日'
   }, {
-    name: '<img class="mapImg" src="image/item01-02.jpg">',
+    name: '<img class="mapImg" src="image/bags/item01-02.jpg">',
     lat: 37.6951212,
     lng: 143.76610649999998,
     icon: 'image/min/item01-02.jpg',
     place: '愛知県',
     date: '2018年3月12日'
   }, {
-    name: '<img class="mapImg" src="image/item01-03.jpg">',
+    name: '<img class="mapImg" src="image/bags/item01-03.jpg">',
     lat: 32.69496,
     lng: 133.76746000000003,
     icon: 'image/min/item01-03.jpg',

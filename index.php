@@ -53,7 +53,7 @@ $have = readCsv("data/have.csv");
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>生き物図鑑</title>
+  <title>いきものあつめ</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
@@ -82,8 +82,10 @@ $have = readCsv("data/have.csv");
         </em>
         <strong>
           <?php
-            echo '+';
-            echo count($have) - 25;
+            if(count($have) - 25 > 0){
+              echo '+';
+              echo count($have) - 25;
+            }
           ?>
         </strong>
       </p>

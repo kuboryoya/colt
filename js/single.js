@@ -15,14 +15,14 @@ var markerData = [ // マーカーを立てる場所名・緯度・経度
     lat: 37.6951212,
     lng: 143.76610649999998,
     icon: 'image/min/item01-02.jpg',
-    place: '愛知県',
+    place: '愛知県名古屋市',
     date: '2018年3月12日'
   }, {
     name: '<img class="mapImg" src="image/bags/item01-03.jpg">',
     lat: 32.69496,
     lng: 133.76746000000003,
     icon: 'image/min/item01-03.jpg',
-    place: 'くまもtん',
+    place: '熊本県熊本市',
     date: '2018年3月20日'
   }
 ];

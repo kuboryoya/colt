@@ -39,7 +39,7 @@ $(function () {
         gps = Exif.loadFromArrayBuffer(reader.result).gpsifd;
         if (typeof gps === "undefined") {
           console.log("GPS data is unavailable.");
-          alert("無効な画像です。他の画像を選択してくだしあ");
+          alert("無効な画像です。他の画像を選択してください");
         } else {
           f = function (b, a) { return a + b / 60; };
           imgLat = gps.latitude.reduceRight(f)  * (gps.latitudeRef.indexOf("N") >= 0 ? 1 : -1);  //Latitude

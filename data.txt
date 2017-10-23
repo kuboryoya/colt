@@ -1,3 +1,20 @@
 
 Google Maps API key : AIzaSyCUTtnZ8_BkU3tCdJgbRVqij3R1ZS03Fbs
 
+使ったサード製のAPIや画像
+
+Google Maps API
+https://enterprise.google.com/intl/ja/maps/
+
+Google CLOUD VISION API
+https://cloud.google.com/vision/
+
+
+アイコンにフリー素材を使用
+http://icooon-mono.com/
+
+
+地図素材に白地図ぬりぬりを使用
+https://n.freemap.jp/
+
+図鑑の説明文の参照元も一応リンク

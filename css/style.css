@@ -30,7 +30,7 @@ dd {
     clear: both;
 }
 .l-in {
-    width: 96%;
+    width: calc(96% - 5px);
     margin: 0 auto;
 }
 .content {

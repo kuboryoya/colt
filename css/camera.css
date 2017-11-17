@@ -14,6 +14,19 @@
   right: 0;
   text-align: center;
 }
+
+.bagText.bagRadio h2 {
+  margin: 15px 0 10px;
+}
+.bagText.bagRadio p {
+  margin: 10px 0 20px;
+}
+
+/* 選択肢 */
+.bagText.bagRadio {
+  margin-bottom: 30px;
+}
+
 input {
   width: 100% !important;
   display: none;

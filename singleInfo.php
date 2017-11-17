@@ -5,11 +5,11 @@
   <img src="image/maps/<?php echo $bag[$bagIndex][3]; ?>.png">
   <table class="l-in">
     <tr>
-      <td>分布</td>
+      <td>分布 ：</td>
       <td><?php echo $bag[$bagIndex][2]; ?></td>
     </tr>
     <tr>
-      <td>時期</td>
+      <td>時期 ：</td>
       <td><?php echo $bag[$bagIndex][4]; ?></td>
     </tr>
   </table>

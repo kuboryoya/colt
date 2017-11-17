@@ -102,7 +102,7 @@ $have = readCsv("data/have.csv");
         //撮った画像があるなら表示
         if($have[$i][1]){
           echo '<a href="single.php?bag=' . $have[$i][0] . '">';
-          echo '<img src="data:image/jpeg;base64,'. $have[$i][1] . '">';
+          echo '<div class="item-list-mask"><img src="data:image/jpeg;base64,'. $have[$i][1] . '"></div>';
           echo '<p>'. $have[$i][0] . '</p>';
           echo '</a>';
         }else{

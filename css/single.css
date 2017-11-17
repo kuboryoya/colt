@@ -28,7 +28,9 @@ tr {
 /*----------------
     single-item
 ----------------*/
-
+.single-main {
+  margin-bottom: 30px;
+}
 .single-main p{
   margin: 10px auto;
   font-size: 14px;
@@ -57,6 +59,10 @@ tr {
 
 .single-info img{
   background-color: #82D6FA;
+}
+
+.single-info td:first-child {
+  width: 55px;
 }
 
 img#MyImg {

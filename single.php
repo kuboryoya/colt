@@ -30,11 +30,17 @@
       <h1><?php echo $have[$bagIndex][0]; ?></h1>
     </div>
   </header>
+
   <div class="single-item content">
     <div class="single-main">
       <span class="single-main-img">
-        <img src="data:image/jpeg;base64,<?php echo $have[$bagIndex][1]; ?>">
+        <?php if($have[$bagIndex][1]): ?>
+          <img src="data:image/jpeg;base64,<?php echo $have[$bagIndex][1]; ?>">
+        <?php else: ?>
+        <img src="image/hatena.png">
+        <?php endif; ?>
       </span>
+      <?php if($have[$bagIndex][1]): ?>
       <div class="single-picture">
         <dl class="l-in l-cf">
           <dt><?php echo $have[$bagIndex][3] ?></dt>
@@ -42,11 +48,14 @@
         </dl>
       </div>
       <p class="l-in"><?php echo $bag[$bagIndex][1]; ?></p>
-    </div>
+    <?php else: ?>
+    <p class="l-in">未発見のいきものです。</p>
+    <?php endif; ?>
+  </div>
 
     <?php
       // データのある虫なら表示
-      if($bagIndex <= 24){
+      if($bagIndex < count($bag)){
         require('singleInfo.php');
       }
     ?>
@@ -70,7 +79,7 @@
 </script>
 <script src="js/map.js"></script>
 <script src="js/inputRead.js"></script>
-<script src="js/single.js"></script>
+<script src="js/single-map.js"></script>
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUTtnZ8_BkU3tCdJgbRVqij3R1ZS03Fbs&callback=initMap">
 </script>

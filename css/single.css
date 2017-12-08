@@ -6,6 +6,11 @@ tr {
   line-height: 30px;
 }
 
+h2 {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
 /*----------------
     single-header
 ----------------*/
@@ -23,6 +28,7 @@ tr {
 
 .content {
   margin-top: 0;
+  position: relative;
 }
 
 /*----------------
@@ -84,11 +90,14 @@ img#thumbnail {
   position: absolute;
   left: 0;
   top: 0;
+  bottom: 0;
+  margin: auto;
   width: 100%;
+  z-index: 10;
 }
-#close-btn{
+#close-btn {
   position: absolute;
-  top: 10px;
+  top: 70px;
   right: 10px;
   width: 20px;
   height: 20px;
@@ -96,4 +105,14 @@ img#thumbnail {
   display: none;
   background: white;
   z-index: 100;
+}
+#close-modal {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  background: rgba(0,0,0,0.5);
+  z-index: 1;
 }

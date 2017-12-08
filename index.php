@@ -66,7 +66,7 @@ $have = readCsv("data/have.csv");
         <em>
           <?php
             $LookNum = 0;
-            for($i=1; $i<25; $i++){
+            for($i=1; $i<count($bag); $i++){
               if($have[$i][1]){
                 $LookNum ++;
               }
@@ -76,15 +76,15 @@ $have = readCsv("data/have.csv");
             echo  '</span>';
             echo '<span>／</span>';
             echo '<span>';
-            echo '24';
+            echo count($bag) - 1;
             echo '</span>';
           ?>
         </em>
         <strong>
           <?php
-            if(count($have) - 25 > 0){
+            if(count($have) - count($bag) > 0){
               echo '+';
-              echo count($have) - 25;
+              echo count($have) - count($bag);
             }
           ?>
         </strong>
@@ -97,20 +97,30 @@ $have = readCsv("data/have.csv");
   <div class="content">
     <ul class="item-list l-in">
       <?php
-        for($i=1; $i< count($have); $i++){
+        // 新しいデータがあるなら最初に表示されるように、配列を入れ替える。
+        if(isset($_POST['bagName'])){
+          for($i=1; $i<count($have); $i++){
+            if($_POST['bagName'] == $have[$i][0]){
+              $entryBag = $have[$i];
+              array_splice($have,$i,1);
+              array_splice($have, 1, 0, array($entryBag));
+            }
+          }
+        }
+        for($i=1; $i<count($have); $i++){
         echo '<li>';
         //撮った画像があるなら表示
+        echo '<a href="single.php?bag=' . $have[$i][0] . '">';
         if($have[$i][1]){
-          echo '<a href="single.php?bag=' . $have[$i][0] . '">';
           echo '<div class="item-list-mask"><img src="data:image/jpeg;base64,'. $have[$i][1] . '"></div>';
           echo '<p>'. $have[$i][0] . '</p>';
-          echo '</a>';
         }else{
           echo '<div>';
           echo '<img src="image/hatena.png">';
           echo '<p>'. $have[$i][0] . '</p>';
           echo '</div>';
         }
+        echo '</a>';
         echo '</li>';
         }
       ?>

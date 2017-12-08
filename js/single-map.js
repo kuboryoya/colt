@@ -1,24 +1,25 @@
 
+// google map api
 var map;
 var marker = [];
 var infoWindow = [];
 var markerData = [ // マーカーを立てる場所名・緯度・経度
   {
-    name: '<img class="mapImg" src="image/bags/item01.jpg">',
+    image: '<img class="mapImg" src="image/bags/item01.jpg">',
     lat: 33.1057806,
     lng: 135.76325010000005,
     icon: 'image/min/item01.jpg',
     place: '静岡県浜松市',
     date: '2018年7月12日'
   }, {
-    name: '<img class="mapImg" src="image/bags/item01-02.jpg">',
+    image: '<img class="mapImg" src="image/bags/item01-02.jpg">',
     lat: 37.6951212,
     lng: 143.76610649999998,
     icon: 'image/min/item01-02.jpg',
     place: '愛知県名古屋市',
     date: '2018年3月12日'
   }, {
-    name: '<img class="mapImg" src="image/bags/item01-03.jpg">',
+    image: '<img class="mapImg" src="image/bags/item01-03.jpg">',
     lat: 32.69496,
     lng: 133.76746000000003,
     icon: 'image/min/item01-03.jpg',
@@ -44,7 +45,7 @@ function initMap() {
     });
 
     infoWindow[i] = new google.maps.InfoWindow({ // 吹き出しの追加
-      content: '<div class="single-map">' + markerData[i]['name'] + '</div>' // 吹き出しに表示する内容
+      content: '<div class="single-map">' + markerData[i]['image'] + '</div>' // 吹き出しに表示する内容
     });
 
     markerEvent(i); // マーカーにクリックイベントを追加
@@ -60,15 +61,15 @@ function initMap() {
 }
 
 
-
 // マーカーにクリックイベントを追加
 function markerEvent(i) {
   marker[i].addListener('click', function() {
     //画像、テキスト（場所）（日付）、ボタンを表示
-    $('#single-map-in').append(markerData[i]['name']);
+    $('#single-map-in').append(markerData[i]['image']);
     $('#single-map-text').children('p').remove();
     $('#single-map-text tr:first-child td:last-child').text(markerData[i]['place']);
     $('#single-map-text tr:last-child td:last-child').text(markerData[i]['date']);
+    $('#close-modal').css('display','block');
     $('#close-btn').css('display','block');
   });
 }
@@ -76,6 +77,7 @@ function markerEvent(i) {
 $(function () {
   $('#close-btn').on('click', function () {
     $('.mapImg').remove();
+    $('#close-modal').css('display','none');
     $('#close-btn').css('display','none');
   });
 });

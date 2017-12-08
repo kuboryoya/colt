@@ -15,6 +15,7 @@
   </table>
 </div>
 
+<?php if($have[$bagIndex][1]): ?>
 <div class="single-map">
   <div class="l-in">
     <h2>他の人の<?php echo $bag[$bagIndex][0] ?></h2>
@@ -22,7 +23,8 @@
   <div id="single-map-in">
     <div id="single-map">
     </div>
-    <p id="close-btn">X</p>
+    <p id="close-btn">×</p>
+    <div id="close-modal"></div>
   </div>
   <div id="single-map-text" class="l-in">
     <p>画像をタップすると情報がみれます。</p>
@@ -38,3 +40,4 @@
     </table>
   </div>
 </div>
+<?php endif; ?>

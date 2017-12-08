@@ -1,4 +1,5 @@
 $(function () {
+  $('#resultText').append('分析中です。');
 
   if(!$('#bagPlace')[0].defaultValue){
     $('#resultText').append('<p>位置情報が取得できませんでした。<br>端末の位置情報の使用を許可してください。</p>');
@@ -55,18 +56,33 @@ $(function () {
       var isBag = 0;
       var bagName = [];
       var bagDescription = [];
+
+      // APIの結果分チェック
       for(var i=0; i<texts.length; i++){
+        var isOverlap = false;
         console.log(texts[i].description.replace(/ /g,'_'));
-        //データと照合して、データに存在する虫ならOK
-        for(var n=0; n<bagData.length; n++){
-          if(bagData[n][5] == texts[i].description.replace(/ /g,'_')) {
-            //出力結果をまとめる
-            isBag ++;
-            bagName.push(bagData[n][0]);
-            bagDescription.push(bagData[n][1]);
+
+        // APIのデータが重複してないかチェック
+        for(var j=0; j<i; j++) {
+          if(texts[i].description == texts[j].description) {
+            isOverlap = true;
+          }
+        }
+
+        // 重複してなければデータと照合して、データに存在する虫なら結果に追加する
+        if(!isOverlap){
+          for(var n=0; n<bagData.length; n++){
+            if(bagData[n][5] == texts[i].description.replace(/ /g,'_')) {
+              //出力結果をまとめる
+              isBag ++;
+              bagName.push(bagData[n][0]);
+              bagDescription.push(bagData[n][1]);
+            }
           }
         }
       }
+
+      $('#resultText').text('');
 
       if(!isBag){
         $('#resultText').append('<p>なんの生き物かわかりませんでした。写真を撮りなおしてください。</p>');
@@ -120,7 +136,6 @@ $(function () {
 
       // 新規追加ボタンを押したらフォームを表示
       $('#newBtn').on('click', function () {
-        console.log("hoge");
         $('#resultText').css('display', 'none');
         $('#newBag').css('display', 'none');
         $('#bagName').css('display', 'block');

@@ -49,7 +49,7 @@
       </div>
       <p class="l-in"><?php echo $bag[$bagIndex][1]; ?></p>
     <?php else: ?>
-    <p class="l-in">未発見のいきものです。</p>
+    <p class="l-in"><?php echo $bag[$bagIndex][1]; ?></p>
     <?php endif; ?>
   </div>
 

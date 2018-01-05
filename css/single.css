@@ -85,7 +85,19 @@ img#thumbnail {
 #single-map-in {
   position: relative;
 }
-
+#single-map-text ul{
+  opacity: 0;
+  padding-bottom: 10px
+}
+#single-map-text ul img{
+  vertical-align: middle;
+  width: 25px;
+  margin: -3px 10px 0 0;
+}
+#single-map-text li {
+line-height: 1.8em;
+margin-bottom: 5px;
+}
 .mapImg {
   position: absolute;
   left: 0;

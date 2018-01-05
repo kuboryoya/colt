@@ -18,7 +18,7 @@
 <?php if($have[$bagIndex][1]): ?>
 <div class="single-map">
   <div class="l-in">
-    <h2>他の人の<?php echo $bag[$bagIndex][0] ?></h2>
+    <h2>全国の<?php echo $bag[$bagIndex][0] ?></h2>
   </div>
   <div id="single-map-in">
     <div id="single-map">
@@ -28,16 +28,11 @@
   </div>
   <div id="single-map-text" class="l-in">
     <p>画像をタップすると情報がみれます。</p>
-    <table>
-      <tr>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td></td>
-      </tr>
-    </table>
+    <ul>
+      <li><img src="image/icon_hito.png"><span id="single-map-user"></span></li>
+      <li><img src="image/icon_map.png"><span id="single-map-place"></span></li>
+      <li><img src="image/icon_time.png"><span id="single-map-time"></span></li>
+    </ul>
   </div>
 </div>
 <?php endif; ?>

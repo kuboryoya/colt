@@ -5,26 +5,29 @@ var marker = [];
 var infoWindow = [];
 var markerData = [ // マーカーを立てる場所名・緯度・経度
   {
-    image: '<img class="mapImg" src="image/bags/item01.jpg">',
-    lat: 33.1057806,
-    lng: 135.76325010000005,
-    icon: 'image/min/item01.jpg',
-    place: '静岡県浜松市',
-    date: '2018年7月12日'
-  }, {
-    image: '<img class="mapImg" src="image/bags/item01-02.jpg">',
-    lat: 37.6951212,
-    lng: 143.76610649999998,
-    icon: 'image/min/item01-02.jpg',
-    place: '愛知県名古屋市',
-    date: '2018年3月12日'
-  }, {
-    image: '<img class="mapImg" src="image/bags/item01-03.jpg">',
-    lat: 32.69496,
-    lng: 133.76746000000003,
-    icon: 'image/min/item01-03.jpg',
+    image: '<img class="mapImg" src="image/bags/item02-01.jpg">',
+    lat: 24.8958667,
+    lng: 130.76325010000005,
+    icon: 'image/min/item02-01.jpg',
+    user: 'そらさん',
     place: '熊本県熊本市',
-    date: '2018年3月20日'
+    date: '2017年7月12日'
+  }, {
+    image: '<img class="mapImg" src="image/bags/item02-02.jpg">',
+    lat: 35.0001599,
+    lng: 136.6926023,
+    icon: 'image/min/item02-02.jpg',
+    user: 'いきもの 太郎',
+    place: '愛知県名古屋市',
+    date: '2018年1月6日'
+  }, {
+    image: '<img class="mapImg" src="image/bags/item02-03.jpg">',
+    lat: 24.69496,
+    lng: 142.76746000000003,
+    icon: 'image/min/item02-03.jpg',
+    user: 'ポコちゃん',
+    place: '青森県青森市',
+    date: '2017年8月20日'
   }
 ];
 
@@ -67,8 +70,10 @@ function markerEvent(i) {
     //画像、テキスト（場所）（日付）、ボタンを表示
     $('#single-map-in').append(markerData[i]['image']);
     $('#single-map-text').children('p').remove();
-    $('#single-map-text tr:first-child td:last-child').text(markerData[i]['place']);
-    $('#single-map-text tr:last-child td:last-child').text(markerData[i]['date']);
+    $('#single-map-text').children('ul').css('opacity','1');
+    $('#single-map-user').text(markerData[i]['user']);
+    $('#single-map-place').text(markerData[i]['place']);
+    $('#single-map-time').text(markerData[i]['date']);
     $('#close-modal').css('display','block');
     $('#close-btn').css('display','block');
   });

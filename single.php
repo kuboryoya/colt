@@ -27,7 +27,7 @@
 <body>
   <header class="single-header">
     <div class="l-in">
-      <h1><?php echo $have[$bagIndex][0]; ?></h1>
+      <h1 id="single-title"><?php echo $have[$bagIndex][0]; ?></h1>
     </div>
   </header>
 
@@ -77,6 +77,7 @@
   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
   crossorigin="anonymous">
 </script>
+<script src="js/csv.js"></script>
 <script src="js/map.js"></script>
 <script src="js/inputRead.js"></script>
 <script src="js/single-map.js"></script>
